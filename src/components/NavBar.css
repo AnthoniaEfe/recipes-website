@@ -1,0 +1,36 @@
+.navbar {
+  top: 0;
+  left: 0;
+  background-color: blueviolet;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar nav {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  color: white;
+}
+
+.navbar a.brand {
+  color: white;
+  margin-right: auto;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.navbar a.create {
+  margin-left: auto;
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a.create:hover {
+  color: white;
+  text-decoration: underline;
+}

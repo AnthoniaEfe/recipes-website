@@ -1,0 +1,8 @@
+.home {
+  margin: 50px auto;
+  max-width: 80%;
+  text-align: center;
+  padding: 10px;
+  padding-top: 0;
+  overflow: hidden;
+}
