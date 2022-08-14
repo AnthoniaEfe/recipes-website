@@ -8,12 +8,12 @@ export default function Search() {
   const queryParams = new URLSearchParams(queryString);
   const query = queryParams.get("query");
 
-  const url = " http://localhost:3000/recipes/?q=" + query;
+  const url = " http://localhost:3000/recipes?q=" + query;
 
   const { data, error, isPending } = useFetch(url);
   return (
-    <div>
-      <h2 className="page-title">Recipes including "{query}"</h2>
+    <div className="search">
+      <h2 className="page-title">Recipes that contain "{query}"</h2>
 
       {isPending && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}

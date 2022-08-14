@@ -7,6 +7,10 @@
   background-color: white;
 }
 
+.recipe.dark {
+  background-color: rgb(113, 113, 113);
+  color: #fff;
+}
 .recipe ul {
   display: flex;
   flex-direction: column;

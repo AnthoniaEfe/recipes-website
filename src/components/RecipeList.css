@@ -19,6 +19,13 @@
   position: relative;
 }
 
+.recipe-list .card.dark {
+  background-color: rgb(113, 113, 113);
+}
+
+.recipe-list .card.dark p{
+  color: #fff;
+}
 .recipe-list .card:hover {
   transform: rotate(2deg);
 }

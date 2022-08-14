@@ -19,7 +19,7 @@ export const useFetch = (url, method = "GET") => {
 
     const fetchData = async (fetchOptions) => {
       setIsPending(true);
-      console.log(fetchOptions);
+      // console.log(fetchOptions);
 
       try {
         const res = await fetch(url, {
@@ -31,13 +31,13 @@ export const useFetch = (url, method = "GET") => {
           throw new Error(res.statusText);
         }
         const data = await res.json();
-        console.log(fetchOptions);
+        // console.log(fetchOptions);
         setIsPending(false);
         setData(data);
         setError(null);
       } catch (err) {
         if (err.name === "AbortError") {
-          console.log("the fetch was aborted");
+          // console.log("the fetch was aborted");
         } else {
           setIsPending(false);
           setError("Could not fetch the data");
