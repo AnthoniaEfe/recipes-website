@@ -23,7 +23,7 @@
   background-color: rgb(113, 113, 113);
 }
 
-.recipe-list .card.dark p{
+.recipe-list .card.dark p {
   color: #fff;
 }
 .recipe-list .card:hover {
@@ -55,4 +55,19 @@
 .recipe-list .card div a:hover {
   color: rgb(116, 35, 190);
   text-decoration: underline;
+}
+
+.recipe-list .delete-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  font-weight: 800;
+  width: 20px;
+  margin: 8px 5px;
+  padding: 3px;
+}
+
+.recipe-list .delete-icon.dark {
+  color: white;
 }

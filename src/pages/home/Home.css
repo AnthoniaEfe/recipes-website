@@ -1,8 +1,14 @@
 .home {
-  margin: 50px auto;
-  max-width: 80%;
+  margin: 0 auto 20px;
+  max-width: 90%;
   text-align: center;
   padding: 10px;
   padding-top: 0;
   overflow: hidden;
+}
+
+.home h2 {
+  font-size: 600;
+  font-family: "Roboto";
+  letter-spacing: 1px;
 }

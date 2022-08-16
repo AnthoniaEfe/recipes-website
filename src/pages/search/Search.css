@@ -1,0 +1,14 @@
+.search {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+}
+
+.search .page-title {
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 24px;
+}
+.search.dark .page-title {
+  color: white;
+}

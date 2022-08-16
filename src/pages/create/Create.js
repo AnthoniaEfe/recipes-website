@@ -1,6 +1,7 @@
 import "./Create.css";
 import { useRef, useState, useEffect } from "react";
-import { useFetch } from "../../hooks/useFetch";
+import { useTheme } from "../../hooks/useTheme";
+import { projectFirestore } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
 
 import React from "react";
@@ -14,10 +15,9 @@ export default function Create() {
   const ingredientInput = useRef(null);
 
   const navigate = useNavigate();
+  const { color, mode } = useTheme();
 
-  const { data, postData } = useFetch(" http://localhost:3000/recipes", "POST");
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const recipe = {
@@ -26,25 +26,12 @@ export default function Create() {
       method: method,
       ingredients: ingredients,
     };
-
-    // console.log(recipe);
-    // postData({
-    //   title,
-    //   cookingTime: `${cookingTime} minutes`,
-    //   method,
-    //   ingredients,
-    // });
-
-    fetch("http://localhost:3000/recipes/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(recipe),
-    });
-
-    navigate("/");
+    try {
+      await projectFirestore.collection("recipes").add(recipe);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handleAdd = (e) => {
@@ -60,9 +47,8 @@ export default function Create() {
     setNewIngredient("");
     ingredientInput.current.focus();
   };
-  // return <p>Inside the create components</p>
   return (
-    <div className="create-recipe">
+    <div className={`create-recipe ${mode}`}>
       <h2 className="page-title">Add a New Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -83,7 +69,11 @@ export default function Create() {
             value={newIngredient}
             ref={ingredientInput}
           />
-          <button className="add-ing-btn" onClick={handleAdd}>
+          <button
+            className="add-ing-btn"
+            onClick={handleAdd}
+            style={{ backgroundColor: color }}
+          >
             Add Ingredient
           </button>
         </label>
@@ -114,12 +104,27 @@ export default function Create() {
           />
         </label>
 
-        <button className="add-recipe-btn">Add Recipe</button>
+        <button className="add-recipe-btn" style={{ backgroundColor: color }}>
+          Add Recipe
+        </button>
       </form>
 
-      <button className="close-recipe-form" onClick={() => navigate("/")}>
+      <button
+        className="close-recipe-form"
+        onClick={() => navigate("/")}
+        style={{ backgroundColor: color }}
+      >
         Close
       </button>
     </div>
   );
 }
+
+// fetch("http://localhost:3000/recipes/", {
+//   method: "POST",
+//   headers: {
+//     Accept: "application/json",
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify(recipe),
+// });

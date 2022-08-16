@@ -2,8 +2,10 @@ import "./Search.css";
 import { useLocation } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import RecipeList from "../../components/RecipeList";
+import { useTheme } from "../../hooks/useTheme";
 
 export default function Search() {
+  const { mode } = useTheme();
   const queryString = useLocation().search;
   const queryParams = new URLSearchParams(queryString);
   const query = queryParams.get("query");
@@ -12,7 +14,7 @@ export default function Search() {
 
   const { data, error, isPending } = useFetch(url);
   return (
-    <div className="search">
+    <div className={`search ${mode}`}>
       <h2 className="page-title">Recipes that contain "{query}"</h2>
 
       {isPending && <div>Loading...</div>}

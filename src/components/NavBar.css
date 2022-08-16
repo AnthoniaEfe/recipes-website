@@ -4,7 +4,7 @@
   background-color: blueviolet;
   width: 100%;
   color: white;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
 
@@ -13,24 +13,45 @@
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  color: white;
+  align-content: center;
+  justify-items: center;
 }
 
-.navbar a.brand {
+.navbar nav .brand img {
+  width: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 2px 6px;
+  align-self: center;
+}
+
+.navbar nav a.brand {
   color: white;
   margin-right: auto;
-  margin-left: 20px;
+  margin-left: 5px;
+  margin: auto auto auto 5px;
   text-decoration: none;
+  align-self: center;
+  font-family: "Roboto";
+  font-size: 18px;
 }
 
-.navbar a.create {
+.navbar nav .brand:hover {
+  transform: scale(1.07);
+  text-decoration: underline;
+}
+
+.navbar nav .create {
+  align-self: center;
   margin-left: auto;
   margin-right: 20px;
   color: white;
   text-decoration: none;
+  font-family: "Roboto";
+  font-size: 18px;
 }
 
-.navbar a.create:hover {
+.navbar nav .create:hover {
   color: white;
   text-decoration: underline;
 }
