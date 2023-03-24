@@ -7,6 +7,7 @@ import { projectFirestore } from "../../firebase/config";
 export default function Recipe() {
   const { mode, color } = useTheme();
   const { id } = useParams();
+  console.log({ id });
 
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState([]);
@@ -64,7 +65,7 @@ export default function Recipe() {
         </div>
       )}
 
-      <button onClick={() => handleClick(recipe.id)}>Update</button>
+
     </div>
   );
 }

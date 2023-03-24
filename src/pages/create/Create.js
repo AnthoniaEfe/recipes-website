@@ -1,5 +1,5 @@
 import "./Create.css";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState} from "react";
 import { useTheme } from "../../hooks/useTheme";
 import { projectFirestore } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
